@@ -549,7 +549,7 @@ namespace NETMapnik
 			throw gcnew System::Exception(managedException);
 		}
 	}
-
+	
 	//zoom_to_box
 	void Map::ZoomToBox(System::Double minx, System::Double miny, System::Double maxx, System::Double maxy)
 	{
@@ -562,6 +562,32 @@ namespace NETMapnik
 		try
 		{
 			(*_map)->zoom_all();
+		}
+		catch (const std::exception& ex)
+		{
+			System::String^ managedException = msclr::interop::marshal_as<System::String^>(ex.what());
+			throw gcnew System::Exception(managedException);
+		}
+	}
+
+	void Map::Zoom(System::Double factor)
+	{
+		try
+		{
+			(*_map)->zoom(factor);
+		}
+		catch (const std::exception& ex)
+		{
+			System::String^ managedException = msclr::interop::marshal_as<System::String^>(ex.what());
+			throw gcnew System::Exception(managedException);
+		}
+	}
+
+	void Map::Pan(System::Int32 x, System::Int32 y)
+	{
+		try
+		{
+			(*_map)->pan(x, y);
 		}
 		catch (const std::exception& ex)
 		{

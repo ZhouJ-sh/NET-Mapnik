@@ -37,7 +37,7 @@ namespace NETMapnik
 		System::String^ _layer;
 		NETMapnik::Featureset^ _featureset;
 	};
-
+	
 	public enum class AspectFixMode : int
 	{
 
@@ -118,7 +118,7 @@ namespace NETMapnik
 			System::Collections::Generic::Dictionary<System::String^, System::Object^>^ get();
 			void set(System::Collections::Generic::Dictionary<System::String^, System::Object^>^);
 		}
-
+		
 		System::Double Scale();
 		System::Double ScaleDenominator();
 		void Clear();
@@ -152,6 +152,8 @@ namespace NETMapnik
 
 		void ZoomToBox(System::Double minx, System::Double miny, System::Double maxx, System::Double maxy);
 		void ZoomAll();
+		void Zoom(System::Double factor);
+		void Pan(System::Int32 x, System::Int32 y);
 
 		void Render(Image^ image);
 		void Render(Image^ image, System::Collections::Generic::IDictionary<System::String^, System::Object^>^ options);
