@@ -1,0 +1,6 @@
+[submodule "lib/mapnik-vector-tile"]
+	path = lib/mapnik-vector-tile
+	url = https://github.com/mapbox/mapnik-vector-tile.git
+[submodule "lib/protobuf"]
+	path = lib/protobuf
+	url = https://github.com/google/protobuf.git
