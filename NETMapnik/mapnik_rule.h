@@ -12,8 +12,11 @@ namespace NETMapnik
 	public:
 		Rule();
 		~Rule();
+
 	internal:
 		Rule(mapnik::rule const & rule);
+		rule_ptr NativeObject();
+
 	private:
 		rule_ptr * _rule;
 	};

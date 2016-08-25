@@ -13,6 +13,7 @@ namespace NETMapnik
 	ref class Color;
 	ref class Layer;
 	ref class Featureset;
+	ref class FeatureTypeStyle;
 
 	typedef std::shared_ptr<mapnik::Map> map_ptr;
 
@@ -139,10 +140,16 @@ namespace NETMapnik
 		System::Collections::Generic::IEnumerable<MapQueryResult^>^ QueryMapPoint(System::Double x, System::Double y);
 		System::Collections::Generic::IEnumerable<MapQueryResult^>^ QueryMapPoint(System::Double x, System::Double y, System::Int32 layerIndex);
 		System::Collections::Generic::IEnumerable<MapQueryResult^>^ QueryMapPoint(System::Double x, System::Double y, System::String^ layerName);
+		
 		Layer^ GetLayer(System::Int32 index);
 		Layer^ GetLayer(System::String^ name);
 		void AddLayer(Layer^ layer);
 		System::Collections::Generic::IEnumerable<Layer^>^ Layers();
+
+		FeatureTypeStyle^ GetStyle(System::String^ name);
+		void AddStyle(System::String^ name, FeatureTypeStyle^ style);
+		System::Collections::Generic::IDictionary<System::String ^, FeatureTypeStyle^>^ Styles();
+
 		void Load(System::String^ path);
 		void Load(System::String^ path, System::Boolean strict);
 		void Load(System::String^ path, System::Boolean strict, System::String^ basePath);

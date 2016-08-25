@@ -163,3 +163,4 @@ lib/boost
 #lib/protobuf*
 lib/x86
 lib/x64
+/*.opendb

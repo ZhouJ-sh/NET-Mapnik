@@ -20,4 +20,9 @@ namespace NETMapnik
 			delete _rule;
 		}
 	}
+
+	rule_ptr Rule::NativeObject()
+	{
+		return *_rule;
+	}
 }

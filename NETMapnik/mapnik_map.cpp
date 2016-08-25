@@ -8,6 +8,7 @@
 #include "mapnik_color.h"
 #include "mapnik_layer.h"
 #include "mapnik_featureset.h"
+#include "mapnik_feature_type_style.h"
 
 #include <memory>
 
@@ -496,6 +497,36 @@ namespace NETMapnik
 			layerCollection->Add(gcnew Layer(layers[i]));
 		}
 		return layerCollection;
+	}
+
+	FeatureTypeStyle^ Map::GetStyle(System::String^ name)
+	{
+		std::string styleName = GetUnmanagedString(name);
+		std::map<std::string, mapnik::feature_type_style> styles = (*_map)->styles();
+		std::map<std::string, mapnik::feature_type_style>::iterator iter = styles.find(styleName);
+		if (iter == styles.end())
+		{
+			throw gcnew System::Exception(System::String::Format("Style name {0} not found", name));
+		}
+		return gcnew FeatureTypeStyle(iter->second);
+	}
+
+	void Map::AddStyle(System::String^ name, FeatureTypeStyle^ style)
+	{
+		(*_map)->insert_style(GetUnmanagedString(name), *style->NativeObject());
+	}
+
+	System::Collections::Generic::IDictionary<System::String^, FeatureTypeStyle^>^ Map::Styles()
+	{
+		std::map<std::string, mapnik::feature_type_style> & styles = (*_map)->styles();
+		System::Collections::Generic::Dictionary<System::String^, FeatureTypeStyle^>^ stylesDic 
+			= gcnew System::Collections::Generic::Dictionary<System::String^, FeatureTypeStyle^>();
+		std::map<std::string, mapnik::feature_type_style>::iterator iter = styles.begin();
+		for ( ; iter != styles.end(); ++iter)
+		{
+			stylesDic->Add(GetManagedString(iter->first), gcnew FeatureTypeStyle(iter->second));
+		}
+		return stylesDic;
 	}
 
 	//load map
