@@ -160,12 +160,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collections.h" />
     <ClInclude Include="ds_emitter.h" />
     <ClInclude Include="mapnik.h" />
     <ClInclude Include="mapnik_color.h" />
     <ClInclude Include="mapnik_datasource.h" />
     <ClInclude Include="mapnik_feature.h" />
     <ClInclude Include="mapnik_featureset.h" />
+    <ClInclude Include="mapnik_feature_type_style.h" />
     <ClInclude Include="mapnik_geometry.h" />
     <ClInclude Include="mapnik_grid_view.h" />
     <ClInclude Include="mapnik_image.h" />
@@ -176,6 +178,7 @@
     <ClInclude Include="mapnik_memory_datasource.h" />
     <ClInclude Include="mapnik_palette.h" />
     <ClInclude Include="mapnik_projection.h" />
+    <ClInclude Include="mapnik_rule.h" />
     <ClInclude Include="mapnik_vector_tile.h" />
     <ClInclude Include="NET_grid_utils.h" />
     <ClInclude Include="NET_options_parser.h" />
@@ -193,6 +196,7 @@
     <ClCompile Include="mapnik_datasource.cpp" />
     <ClCompile Include="mapnik_feature.cpp" />
     <ClCompile Include="mapnik_featureset.cpp" />
+    <ClCompile Include="mapnik_feature_type_style.cpp" />
     <ClCompile Include="mapnik_geometry.cpp" />
     <ClCompile Include="mapnik_grid_view.cpp" />
     <ClCompile Include="mapnik_image.cpp" />
@@ -203,6 +207,7 @@
     <ClCompile Include="mapnik_memory_datasource.cpp" />
     <ClCompile Include="mapnik_palette.cpp" />
     <ClCompile Include="mapnik_projection.cpp" />
+    <ClCompile Include="mapnik_rule.cpp" />
     <ClCompile Include="mapnik_vector_tile.cpp" />
     <ClCompile Include="NET_options_parser.cpp" />
     <ClCompile Include="Stdafx.cpp">
